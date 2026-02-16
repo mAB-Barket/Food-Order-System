@@ -1,4 +1,4 @@
-                                                        Food Order System 
+                                                   Food Order System 
 
 The system build to take order from the customer. 
 
