@@ -32,6 +32,13 @@ def display_menu():
         print(f"{i + 1:<6}{item_name:<20}{item_price:>10}")
     print("-" * 45)
 
+def discount(total):
+    """If Items Greater than 2 then Apply Discount of 5%"""
+    if len(order_list) > 2:
+        discount_amount = total * 0.05
+        return discount_amount
+    return 0
+
 
 def take_order():
     """Let the user select items and quantities."""
@@ -95,7 +102,12 @@ def display_order_summary():
         print(f"{name:<20}{qty:>6}{price:>10}{subtotal:>12}")
 
     print("-" * 55)
+    discount_amount = discount(total)
     print(f"\n{'TOTAL BILL':.<40} Rs. {total}")
+    if discount_amount > 0:
+        print(f"{'DISCOUNT (5%)':.<40} - Rs. {discount_amount}")
+        total -= discount_amount
+    print(f"{'FINAL BILL':.<40} Rs. {total}")
     print("=" * 55)
 
 
